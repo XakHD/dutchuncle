@@ -49,10 +49,10 @@ const App = () => {
   return (
 
     <div className='bg-[#064077] min-h-screen flex flex-row items-center justify-center'>
-     <div className='w-fit flex gap-8 h-fit relative justify-center border-4'> 
+     <div className='w-fit flex gap-8 h-fit relative justify-center'> 
     
       {/* Left-hand container */}
-      <div className="w-2/3 md:w-3/5 flex flex-col items-center justify-between xs:w-full lg:w-1/3 border-4 lg:mt-10 lg:m-10 ">
+      <div className="w-2/3 md:w-3/5 flex flex-col items-center justify-between xs:w-full lg:w-1/3  lg:mt-10 lg:m-10 ">
         <div>
           <img className="xs:m-8 md:m-8 " src={logo} alt="" />
           <div className="flex flex-col gap-2 items-center">
@@ -90,7 +90,7 @@ const App = () => {
       {/* Right-hand container */}
  
 
-<div className='w-1/2 relative hidden lg:block lg:w-1/3 lg:mt-10 border-4'>
+<div className='w-1/2 relative hidden lg:block lg:w-1/3 lg:mt-10'>
 <img className="w-full" src={character} alt="" />
 
 <img className="absolute bottom-0 right-0 mb-[190px] mr-12 hover:animate-spin animate-float1" src={box2} alt="" />
