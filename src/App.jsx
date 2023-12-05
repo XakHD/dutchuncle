@@ -8,42 +8,44 @@ import { GrShare } from "react-icons/gr";
 import box3 from './assests/images/box3.png'
 import box2 from './assests/images/box2.png'
 import box1 from './assests/images/box1.png'
-import { motion } from "framer-motion";
 import { useState, useEffect } from 'react';
 
 
-const App = () => {
-
-  const [days, setDays] = useState(30);
-  const [hours, setHours] = useState(0);
-  const [minutes, setMinutes] = useState(0);
-  const [seconds, setSeconds] = useState(0);
-
-  useEffect(() => {
-    const countdownDate = new Date();
-    countdownDate.setDate(countdownDate.getDate() + 30);
-
-    const updateCountdown = () => {
-      const now = new Date().getTime();
-      const timeRemaining = countdownDate - now;
-
-      if (timeRemaining > 0) {
-        const remainingDays = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-        const remainingHours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const remainingMinutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-        const remainingSeconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-        setDays(remainingDays);
-        setHours(remainingHours);
-      }
-    };
-
-    const interval = setInterval(updateCountdown, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
 
+
+  const App = () => {
+
+
+    const [days, setDays] = useState(0);
+    const [hours, setHours] = useState(0);
+    const [minutes, setMinutes] = useState(0);
+    const [seconds, setSeconds] = useState(0);
+  
+    useEffect(() => {
+      const target = new Date("1/03/2024 23:59:59");
+  
+      const interval = setInterval(() => {
+        const now = new Date();
+        const difference = target.getTime() - now.getTime();
+  
+        const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+        setDays(d);
+  
+        const h = Math.floor(
+          (difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
+        );
+        setHours(h);
+  
+        const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        setMinutes(m);
+  
+        const s = Math.floor((difference % (1000 * 60)) / 1000);
+        setSeconds(s);
+      }, 1000);
+  
+      return () => clearInterval(interval);
+    }, []);
 
 
   return (
@@ -105,6 +107,8 @@ const App = () => {
   <div className='growth font-bold absolute top-3 text-[#064077] text-8xl flex items-center bg-green-500 rounded md:p-4 md:top-0 lg:top-5 '>
   <p className='mr-2 text-[1.3rem]'>{days}d</p>
       <p className='mr-2 text-[1.3rem]'> {hours}h</p>
+      <p className='mr-2 text-[1.3rem] hidden'>{minutes}d</p>
+      <p className='mr-2 text-[1.3rem] hidden'> {seconds}h</p>
       <p className='text-[1.1rem]'>Alpha Drops! Be prepared, Growth Now!</p>
     <div>
    </div>
@@ -119,6 +123,5 @@ const App = () => {
 
   )
 }
-
 
 export default App;
