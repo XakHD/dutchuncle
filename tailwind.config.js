@@ -21,11 +21,9 @@ module.exports = {
         'lg': '960px',
         // => @media (min-width: 960px) { ... }
 
-        'xl': '1280px',
-        // => @media (min-width: 1280px) { ... }
+        'lg': `1280px`,
 
-        '2xl': '1440px',
-        // => @media (min-width: 1440px) { ... }
+  
       },
       fontFamily: {
         libre: ['"Gemunu Libre"', ...defaultTheme.fontFamily.sans]
