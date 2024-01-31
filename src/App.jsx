@@ -23,7 +23,7 @@ import { useState, useEffect } from 'react';
     const [seconds, setSeconds] = useState(0);
   
     useEffect(() => {
-      const target = new Date("1/03/2024 23:59:59");
+      const target = new Date("2/03/2024 23:59:59");
   
       const interval = setInterval(() => {
         const now = new Date();
@@ -55,8 +55,9 @@ import { useState, useEffect } from 'react';
     
       {/* Left-hand container */}
       <div className="w-2/3 md:w-3/5 flex flex-col items-center justify-between xs:w-full lg:w-1/3  lg:mt-10 lg:m-10 ">
+     
         <div>
-          <img className="xs:m-8 md:m-8 " src={logo} alt="" />
+        <img className="xs:m-8 md:m-8 " src={logo} alt="" />
           <div className="flex flex-col gap-2 items-center">
             {/* <h2 className='growth w-full text-[#1bee70] text-8xl font-bold'>Growth NOW!</h2>  */}
             {/* <h2 className='growth w-full text-[#1bee70] xs:text-3xl sm:text-4xl md:text-7xl lg:text-8xl xl:text-9xl 2xl:text-10xl font-bold'>
